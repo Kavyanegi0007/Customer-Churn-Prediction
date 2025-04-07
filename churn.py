@@ -164,7 +164,7 @@ X_train_smote_scaled = scaler.fit_transform(X_train_smote)  # Fit & transform tr
 X_test_scaled = scaler.transform(X_test)  # Only transform test set (no fitting!)
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report , recall_score
 
 # Initialize the model
 model = LogisticRegression(random_state=42)
@@ -177,4 +177,5 @@ y_pred = model.predict(X_test_scaled)
 
 # Evaluate the model
 print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Recall:", recall_score(y_test, y_pred))
 print("Classification Report:\n", classification_report(y_test, y_pred))
